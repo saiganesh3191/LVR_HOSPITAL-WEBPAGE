@@ -162,7 +162,7 @@ test("mobile navigation, FAQ, page layouts and overflow", async ({ page }) => {
   await expect(page.locator("details[open]")).toContainText("confirm the doctor");
   for (const width of [320, 390, 768, 1024, 1440]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ["/", "/doctors", "/appointment", "/contact", "/departments/pediatrics", "/doctors/prathyusha"]) {
+    for (const route of ["/", "/doctors", "/appointment", "/contact", "/departments/pediatrics", "/departments/gastroenterology", "/doctors/prathyusha"]) {
       await page.goto(route);
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
       expect(overflow, `${route} overflows at ${width}px`).toBe(false);

@@ -27,6 +27,9 @@
   .page-intro .breadcrumb, .breadcrumb { margin-bottom: 20px; font-size: 12px; }
   .page-intro h1 { font-size: clamp(36px, 10vw, 44px); }
   .page-description { font-size: 15px; line-height: 1.7; }
+  .detail-grid { grid-template-columns: minmax(0, 1fr); }
+  .detail-grid > * { min-width: 0; }
+  .detail-grid h2 { font-size: clamp(32px, 9vw, 39px); overflow-wrap: break-word; }
   .hero { padding: 10px 10px 0; }
   .hero-copy { padding: 27px 24px 17px; }
   .hero-hospital-name { font-size: 13px; margin-top: 19px; }
