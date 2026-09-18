@@ -23,7 +23,10 @@ test("visit drawer traps focus, closes accessibly, and works on mobile", async (
   await page.mouse.click(10, 300);
   await expect(drawer).not.toBeVisible();
   await page.setViewportSize({ width: 320, height: 740 });
-  await trigger.click();
+  await expect(trigger).toBeHidden();
+  await page.getByRole("button", { name: "Open menu" }).click();
+  await page.getByRole("button", { name: "Before your visit" }).click();
+  await expect(drawer).toBeVisible();
   expect(await drawer.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/visit-drawer-mobile.png" });
   await drawer.getByRole("link", { name: "Request an appointment" }).click();

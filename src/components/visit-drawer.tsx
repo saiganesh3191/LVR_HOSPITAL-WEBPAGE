@@ -8,7 +8,21 @@ import { hospital } from "@/lib/hospital";
 export function VisitDrawer() {
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
+  const opener = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState(false);
+
+  function show() {
+    opener.current = document.activeElement instanceof HTMLElement ? document.activeElement : trigger.current;
+    dialog.current?.showModal();
+    if (dialog.current) dialog.current.scrollTop = 0;
+    setOpen(true);
+  }
+
+  useEffect(() => {
+    const openGuide = () => show();
+    window.addEventListener("open-lvr-visit-guide", openGuide);
+    return () => window.removeEventListener("open-lvr-visit-guide", openGuide);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -20,14 +34,14 @@ export function VisitDrawer() {
   function close() { dialog.current?.close(); }
 
   return <>
-    <button ref={trigger} className="visit-drawer-trigger" aria-haspopup="dialog" aria-controls="visit-drawer" onClick={() => { dialog.current?.showModal(); if (dialog.current) dialog.current.scrollTop = 0; setOpen(true); }}><ClipboardList size={18} /><span>Before your visit</span></button>
+    <button ref={trigger} className="visit-drawer-trigger" aria-haspopup="dialog" aria-controls="visit-drawer" onClick={show}><ClipboardList size={18} /><span>Before your visit</span></button>
     <dialog ref={dialog} id="visit-drawer" className="visit-drawer" onKeyDown={event => {
         if (event.key !== "Tab") return;
         const items = event.currentTarget.querySelectorAll<HTMLElement>('a[href], button:not([disabled])');
         const first = items[0], last = items[items.length - 1];
         if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
         else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
-      }} aria-labelledby="visit-drawer-title" onClose={() => { setOpen(false); trigger.current?.focus(); }} onClick={event => { if (event.target === event.currentTarget) { const rect = event.currentTarget.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) close(); } }}>
+      }} aria-labelledby="visit-drawer-title" onClose={() => { setOpen(false); (opener.current?.isConnected ? opener.current : trigger.current)?.focus(); }} onClick={event => { if (event.target === event.currentTarget) { const rect = event.currentTarget.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) close(); } }}>
       <div className="visit-drawer-heading"><span>YOUR LVR VISIT</span><button type="button" className="drawer-close" aria-label="Close visit guide" onClick={close} autoFocus><X size={23} /></button></div>
       <div className="visit-drawer-body"><p className="eyebrow">A LITTLE PREPARATION</p><h2 id="visit-drawer-title">Feel ready.<br /><em>We’re here to help.</em></h2><p className="drawer-intro">A few useful details, all in one place.</p>
         <section className="drawer-section"><Clock3 size={23} /><div><h3>Choose your time</h3><p>The hospital is open 24/7. Individual doctor timings vary. Call reception to confirm before travelling.</p><Link href="/doctors" onClick={close}>Explore our doctors <ArrowUpRight size={16} /></Link></div></section>
