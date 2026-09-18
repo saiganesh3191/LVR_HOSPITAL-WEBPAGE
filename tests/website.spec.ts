@@ -249,3 +249,21 @@ test("visitor search finds profiles and the Telugu guide", async ({ page }) => {
   await page.goto("/updates");
   await expect(page.getByText("There are no current announcements.")).toBeVisible();
 });
+
+test("client-approved doctor details and bed count appear on mobile", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  for (const route of ["/", "/doctors", "/doctors/prathyusha", "/facilities", "/about"]) {
+    await page.goto(route);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), route).toBe(true);
+  }
+  await expect(page.getByText("Hospital beds, including 8 ICU beds")).toBeVisible();
+  await expect(page.getByText("20", { exact: true })).toBeVisible();
+  await page.goto("/doctors/prathyusha");
+  await expect(page.getByText(/Dermatology, Venereology & Leprosy.*Gold Medalist/)).toBeVisible();
+  await expect(page.getByText("Hair fall and scalp concerns")).toBeVisible();
+  await expect(page.getByText("Nail conditions")).toBeVisible();
+  await expect(page.getByText("Sexually transmitted infections (STIs)")).toBeVisible();
+  await page.goto("/doctors");
+  await expect(page.getByText("Available 24/7 — call reception to arrange your consultation")).toHaveCount(2);
+  await expect(page.getByText("Consultant visits — call to confirm the next available date")).toHaveCount(2);
+});

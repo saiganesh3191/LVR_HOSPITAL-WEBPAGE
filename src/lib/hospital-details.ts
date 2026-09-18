@@ -23,7 +23,7 @@ export const profileDetails: Record<string, ProfileDetail> = {
   },
   prathyusha: {
     fee: 300, languages: ["Telugu", "English", "Kannada", "Hindi"],
-    focus: ["Fungal skin infections (tinea)", "Scabies", "Psoriasis", "Hives (urticaria)", "Vitiligo"],
+    focus: ["Hair fall and scalp concerns", "Nail conditions", "Sexually transmitted infections (STIs)", "Fungal skin infections (tinea)", "Scabies", "Psoriasis", "Hives (urticaria)", "Vitiligo"],
     education: [
       { title: "MBBS", institution: "Osmania Medical College, Hyderabad", years: "2013–2019" },
       { title: "MD, Dermatology, Venereology & Leprosy", institution: "JSS Medical College and Hospital, Mysuru", years: "2022–2025" },
@@ -37,7 +37,7 @@ export const profileDetails: Record<string, ProfileDetail> = {
 
 export const facilities = [
   { title: "Emergency care", hours: "24 hours", description: "Emergency assessment and stabilisation. Call the hospital directly for urgent help.", icon: "emergency" },
-  { title: "Intensive care unit", hours: "24 hours · 8 ICU beds", description: "An eight-bed ICU forms part of the hospital’s 30-bed inpatient capacity.", icon: "icu" },
+  { title: "Intensive care unit", hours: "24 hours · 8 ICU beds", description: "An eight-bed ICU forms part of the hospital’s 20-bed inpatient capacity.", icon: "icu" },
   { title: "Laboratory", hours: "24 hours", description: "Blood investigations are available. Reception can confirm specific tests and preparation instructions.", icon: "lab" },
   { title: "Pharmacy", hours: "24 hours", description: "An on-site pharmacy supports patients’ medicine requirements.", icon: "pharmacy" },
   { title: "Ambulance support", hours: "24 hours", description: "Contact reception to arrange ambulance assistance and confirm availability.", icon: "ambulance" },
