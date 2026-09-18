@@ -12,7 +12,7 @@ export const portraitSources: Record<string, { src: string; position: string }> 
 export function DoctorPortrait({ doctor, profile = false }: { doctor: Doctor; profile?: boolean }) {
   const photo = portraitSources[doctor.slug];
   return <div className={`doctor-photo${profile ? " doctor-photo-profile" : ""} ${doctor.color}`}>
-    {photo ? <Image src={photo.src} alt={doctor.name} fill sizes={profile ? "(max-width: 760px) 100vw, 40vw" : "(max-width: 760px) 100vw, (max-width: 1000px) 50vw, 33vw"} style={{ objectPosition: photo.position }} /> : <span className="portrait-initials" aria-hidden="true">{doctor.initials}</span>}
+    {photo ? <Image src={photo.src} alt={doctor.name} fill priority={profile} sizes={profile ? "(max-width: 760px) 100vw, 40vw" : "(max-width: 760px) 100vw, (max-width: 1000px) 50vw, 33vw"} style={{ objectPosition: photo.position }} /> : <span className="portrait-initials" aria-hidden="true">{doctor.initials}</span>}
     <span className="portrait-department">{doctor.department}</span>
   </div>;
 }

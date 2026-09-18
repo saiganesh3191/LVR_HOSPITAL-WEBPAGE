@@ -262,6 +262,9 @@ test("client-approved doctor details and bed count appear on mobile", async ({ p
   await expect(page.getByText("Hospital beds, including 8 ICU beds")).toBeVisible();
   await expect(page.getByText("20", { exact: true })).toBeVisible();
   await page.goto("/doctors/prathyusha");
+  for (const image of [page.locator(".site-header img"), page.locator(".doctor-photo-profile img")]) {
+    await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
+  }
   await expect(page.getByText(/Dermatology, Venereology & Leprosy.*Gold Medalist/)).toBeVisible();
   await expect(page.getByText("Hair fall and scalp concerns")).toBeVisible();
   await expect(page.getByText("Nail conditions")).toBeVisible();
