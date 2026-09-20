@@ -12,7 +12,7 @@ export type ProfileDetail = {
 export const profileDetails: Record<string, ProfileDetail> = {
   "lakshman-sai": {
     fee: 300, languages: ["Telugu", "English", "Kannada", "Hindi"],
-    focus: ["High blood pressure (hypertension)", "Diabetes", "Infections", "Anaemia", "Low platelet count (thrombocytopenia)"],
+    focus: ["General medical disorders", "Diabetes", "Rheumatological diseases", "Infectious diseases", "Allergy and immunological disorders"],
     education: [
       { title: "MBBS", institution: "NRI Institute of Medical Sciences, Visakhapatnam", years: "2012–2018" },
       { title: "MD, General Medicine", institution: "JSS Academy of Higher Education and Research, Mysuru", years: "2020–2023" },
