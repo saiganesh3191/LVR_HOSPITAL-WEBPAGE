@@ -3,6 +3,7 @@
 export type ProfileDetail = {
   fee: number;
   languages?: string[];
+  services?: string[];
   focus: string[];
   education?: { title: string; institution: string; years: string }[];
   career?: string[];
@@ -12,6 +13,32 @@ export type ProfileDetail = {
 export const profileDetails: Record<string, ProfileDetail> = {
   "lakshman-sai": {
     fee: 300, languages: ["Telugu", "English", "Kannada", "Hindi"],
+    services: [
+      "Viral fever treatment",
+      "High fever treatment",
+      "Fever of unknown origin",
+      "Infectious disease treatment",
+      "Thyroid disorders",
+      "High blood pressure treatment",
+      "Diabetes treatment",
+      "Dengue treatment",
+      "Malaria treatment",
+      "Adult vaccinations",
+      "Master health check",
+      "Master health check plans",
+      "Hypothyroidism",
+      "Hyperthyroidism",
+      "Vaccination advice",
+      "Infection treatment",
+      "Allergy treatment",
+      "Diarrhoea treatment",
+      "Vomiting treatment",
+      "General physician consultation for fever",
+      "Physician consultation for diabetes",
+      "Thyroid consultation in Sathupally",
+      "Constipation",
+      "Gas-related digestive concerns",
+    ],
     focus: ["General medical disorders", "Diabetes", "Rheumatological diseases", "Infectious diseases", "Allergy and immunological disorders"],
     education: [
       { title: "MBBS", institution: "NRI Institute of Medical Sciences, Visakhapatnam", years: "2012–2018" },
