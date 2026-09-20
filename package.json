@@ -9,6 +9,7 @@
   "typecheck": "tsc --noEmit",
   "lint": "eslint .",
   "test:e2e": "playwright test",
+  "preview:static": "node scripts/preview-static.mjs",
   "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
   "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
 },

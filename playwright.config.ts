@@ -6,6 +6,6 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   timeout: 120_000,
-  use: { baseURL: "http://localhost:3000", browserName: "chromium", headless: true, trace: "retain-on-failure" },
+  use: { baseURL: process.env.PLAYWRIGHT_BASE_URL || "http://localhost:3000", browserName: "chromium", headless: true, trace: "retain-on-failure" },
   reporter: "list",
 });

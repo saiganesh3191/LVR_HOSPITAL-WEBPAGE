@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { departments, doctors } from "@/lib/hospital";
+export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   if (process.env.SITE_INDEXABLE !== "true") return [];
   const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
