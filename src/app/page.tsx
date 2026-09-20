@@ -7,6 +7,7 @@ import { HospitalBuilding } from "@/components/hospital-visit";
 import { CareJourney } from "@/components/care-journey";
 import { CareFinder, SpecialtyExplorer } from "@/components/care-explorer";
 import { HomeGallery } from "@/components/home-gallery";
+import { GoogleReviews } from "@/components/google-reviews";
 import { doctors, hospital, whatsappUrl } from "@/lib/hospital";
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
     <section className="section doctors-section editorial-doctors"><div className="container"><div className="section-heading"><div><Eyebrow>03 / YOUR CARE TEAM</Eyebrow><h2>Good people.<br /><em>In your corner.</em></h2></div><div className="section-heading-aside"><p>Meet the doctors behind your care.<br />Get to know them before you say hello.</p><Link href="/doctors" className="text-link">Find your doctor <ArrowUpRight size={20} /></Link></div></div><p className="mobile-swipe-hint">Swipe to meet all five doctors <ArrowRight size={16} /></p><div className="doctor-grid">{doctors.map(doctor => <DoctorCard doctor={doctor} key={doctor.slug} />)}</div><p className="directory-note small-note">Hospital care is available 24/7. Individual doctor schedules vary; reception will confirm your appointment.</p></div></section>
     <HospitalFacilities compact />
     <HomeGallery />
+    <GoogleReviews />
     <section className="visit-section"><div className="container"><div className="section-heading"><div><Eyebrow>05 / A LITTLE LESS WORRY</Eyebrow><h2>We’ll take it<br /><em>one step at a time.</em></h2></div><Link href="/patient-guide" className="text-link">Your guide to visiting LVR <ArrowUpRight size={20} /></Link></div><CareJourney /></div></section>
     <section className="section"><div className="container faq-grid"><div><Eyebrow>06 / GOOD TO KNOW</Eyebrow><h2>Less wondering.<br /><em>More clarity.</em></h2><p className="muted">Something else on your mind?</p><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="text-link">Let’s talk <MessageCircle size={19} /></a></div><FaqList limit={4} /></div></section>
     <CareCta />
