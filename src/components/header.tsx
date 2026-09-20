@@ -8,10 +8,15 @@ import { HospitalLogo } from "./icons";
 import { hospital } from "@/lib/hospital";
 import { SiteSearch } from "./site-search";
 
-const navigation = [ ["Home", "/"], ["About us", "/about"], ["Specialties", "/departments"], ["Our doctors", "/doctors"], ["Facilities", "/facilities"], ["Gallery", "/gallery"], ["Patient guide", "/patient-guide"], ["Contact", "/contact"] ];
+const englishNavigation = [ ["Home", "/"], ["About us", "/about"], ["Specialties", "/departments"], ["Our doctors", "/doctors"], ["Facilities", "/facilities"], ["Gallery", "/gallery"], ["Patient guide", "/patient-guide"], ["Contact", "/contact"] ];
+const teluguNavigation = [ ["హోమ్", "/"], ["మా గురించి", "/about"], ["వైద్య విభాగాలు", "/departments"], ["మా వైద్యులు", "/doctors"], ["సౌకర్యాలు", "/facilities"], ["గ్యాలరీ", "/gallery"], ["రోగి మార్గదర్శిని", "/patient-guide"], ["సంప్రదించండి", "/contact"] ];
 
 export function Header() {
   const pathname = usePathname();
+  const isTelugu = pathname === "/te" || pathname.startsWith("/te/");
+  const navigation = isTelugu ? teluguNavigation : englishNavigation;
+  const localHref = (href: string) => isTelugu ? (href === "/" ? "/te" : `/te${href}`) : href;
+  const englishHref = isTelugu ? (pathname.replace(/^\/te/, "") || "/") : "/te";
   const [open, setOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -23,12 +28,12 @@ export function Header() {
   return <>
     <div className="topbar"><div className="container topbar-inner"><span className="topbar-location"><MapPin size={13} /> Sathupally, Telangana <span className="topbar-divider">|</span> Close to home. Here for you.</span><a href={hospital.phoneHref}><span className="status-dot" /> 24/7 hospital care <span className="topbar-divider">|</span> <Phone size={13} /> {hospital.phone}</a></div></div>
     <header className="site-header"><div className="container nav-inner">
-      <Link href="/" className="brand" aria-label="LVR Hospital home" onClick={() => setOpen(false)}><HospitalLogo priority /></Link>
-      <nav className="desktop-nav" aria-label="Main navigation">{navigation.map(([label, href]) => <Link key={href} href={href} aria-current={pathname === href || (href !== "/" && pathname.startsWith(href + "/")) ? "page" : undefined}>{label}</Link>)}</nav>
-      <div className="header-utilities"><SiteSearch /><Link href="/te" className="language-link" lang="te" aria-label="Read hospital information in Telugu">తెలుగు</Link><Link href="/appointment" className="button button-small header-book">Book appointment <ArrowUpRight size={16} /></Link></div>
+      <Link href={localHref("/")} className="brand" aria-label={isTelugu ? "LVR హాస్పిటల్ హోమ్" : "LVR Hospital home"} onClick={() => setOpen(false)}><HospitalLogo priority /></Link>
+      <nav className="desktop-nav" aria-label={isTelugu ? "ప్రధాన నావిగేషన్" : "Main navigation"}>{navigation.map(([label, href]) => { const target = localHref(href); return <Link key={href} href={target} aria-current={pathname === target || (target !== "/" && pathname.startsWith(target + "/")) ? "page" : undefined}>{label}</Link>; })}</nav>
+      <div className="header-utilities">{!isTelugu && <SiteSearch />}<Link href={englishHref} data-locale-switch className="language-link" lang={isTelugu ? "en" : "te"} aria-label={isTelugu ? "Read the website in English" : "Read the website in Telugu"} onClick={(event) => { if (isTelugu) { event.preventDefault(); window.location.assign(englishHref); } }}>{isTelugu ? "English" : "తెలుగు"}</Link><Link href={localHref("/appointment")} className="button button-small header-book">{isTelugu ? "అపాయింట్‌మెంట్ బుక్ చేయండి" : "Book appointment"} <ArrowUpRight size={16} /></Link></div>
       <button ref={menuButton} className="menu-button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
     </div>
-    {open && <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">{navigation.map(([label, href]) => <Link key={href} href={href} aria-current={pathname === href ? "page" : undefined} onClick={() => setOpen(false)}>{label}<ArrowUpRight size={17} /></Link>)}<Link href="/updates" onClick={() => setOpen(false)}>Hospital updates <ArrowUpRight size={17} /></Link><Link href="/te" lang="te" onClick={() => setOpen(false)}>తెలుగు సమాచారం <ArrowUpRight size={17} /></Link><button type="button" className="mobile-visit-link" onClick={() => { setOpen(false); menuButton.current?.focus(); window.dispatchEvent(new Event("open-lvr-visit-guide")); }}>Before your visit <ClipboardList size={18} /></button><Link className="button" href="/appointment" onClick={() => setOpen(false)}>Book appointment <CalendarDays size={18} /></Link></nav>}
+    {open && <nav id="mobile-navigation" className="mobile-nav" aria-label={isTelugu ? "మొబైల్ నావిగేషన్" : "Mobile navigation"}>{navigation.map(([label, href]) => { const target = localHref(href); return <Link key={href} href={target} aria-current={pathname === target ? "page" : undefined} onClick={() => setOpen(false)}>{label}<ArrowUpRight size={17} /></Link>; })}<Link href={localHref("/updates")} onClick={() => setOpen(false)}>{isTelugu ? "హాస్పిటల్ అప్‌డేట్లు" : "Hospital updates"} <ArrowUpRight size={17} /></Link><Link href={englishHref} data-locale-switch lang={isTelugu ? "en" : "te"} onClick={(event) => { setOpen(false); if (isTelugu) { event.preventDefault(); window.location.assign(englishHref); } }}>{isTelugu ? "English" : "తెలుగు సమాచారం"} <ArrowUpRight size={17} /></Link><button type="button" className="mobile-visit-link" onClick={() => { setOpen(false); menuButton.current?.focus(); window.dispatchEvent(new Event("open-lvr-visit-guide")); }}>{isTelugu ? "మీ సందర్శనకు ముందు" : "Before your visit"} <ClipboardList size={18} /></button><Link className="button" href={localHref("/appointment")} onClick={() => setOpen(false)}>{isTelugu ? "అపాయింట్‌మెంట్ బుక్ చేయండి" : "Book appointment"} <CalendarDays size={18} /></Link></nav>}
     </header>
   </>;
 }

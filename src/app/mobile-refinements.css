@@ -1,6 +1,10 @@
 .mobile-swipe-hint { display: none; }
 
 @media (max-width: 760px) {
+  .telugu-localized .appointment-grid,
+  .telugu-localized .appointment-form-panel,
+  .telugu-localized .appointment-aside { min-width: 0; }
+  .telugu-localized .appointment-aside { overflow-wrap: anywhere; }
   html { scroll-padding-top: 78px; }
   body { font-size: 15px; }
   .container { width: calc(100% - 36px); }
