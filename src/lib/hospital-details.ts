@@ -64,6 +64,7 @@ export const profileDetails: Record<string, ProfileDetail> = {
   },
   prathyusha: {
     fee: 300, languages: ["Telugu", "English", "Kannada", "Hindi"],
+    services: ["PRP/GFC therapy", "Chemical peels", "Medi Facial", "Cautery / radiofrequency cautery (RFC)", "Phototherapy"],
     focus: ["Hair fall and scalp concerns", "Nail conditions", "Sexually transmitted infections (STIs)", "Fungal skin infections (tinea)", "Scabies", "Psoriasis", "Hives (urticaria)", "Vitiligo"],
     education: [
       { title: "MBBS", institution: "Osmania Medical College, Hyderabad", years: "2013–2019" },
@@ -89,7 +90,7 @@ export const facilities = [
 
 export const departmentServices: Record<string, string[]> = {
   "general-medicine": ["Outpatient consultations and inpatient treatment", "Blood investigations", "Emergency assessment and stabilisation"],
-  dermatology: ["Skin biopsies", "Vitiligo treatment", "Chemical peels"],
+  dermatology: ["Skin biopsies", "Vitiligo treatment", "PRP/GFC therapy", "Chemical peels", "Medi Facial", "Cautery / radiofrequency cautery (RFC)", "Phototherapy"],
   pediatrics: ["Childhood jaundice assessment and care", "Blood investigations"],
   gastroenterology: ["Outpatient consultations", "Upper gastrointestinal endoscopy (UGI scopy), by arrangement"],
   nephrology: ["Outpatient consultations and treatment"],
