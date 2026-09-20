@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("gallery filters photos and opens an accessible viewer", async ({ page }) => {
   await page.goto("/gallery");
   const tiles = page.locator(".gallery-tile");
-  await expect(tiles).toHaveCount(31);
+  await expect(tiles).toHaveCount(33);
 
   await page.getByRole("button", { name: "Team celebrations" }).click();
   await expect(tiles).toHaveCount(12);

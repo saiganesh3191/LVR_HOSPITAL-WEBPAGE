@@ -3,12 +3,14 @@ export type GalleryCategory = "hospital-visits" | "team-life" | "community-care"
 export type GalleryPhoto = { id: string; category: GalleryCategory; src: string; thumbnail: string; alt: string; width: number; height: number };
 
 export const galleryCollections = [
-  { id: "hospital-visits" as GalleryCategory, title: "Hospital visits", description: "Professional conversations and moments shared with visitors at LVR." },
+  { id: "hospital-visits" as GalleryCategory, title: "Hospital & facilities", description: "A look inside LVR and moments shared with visitors at the hospital." },
   { id: "team-life" as GalleryCategory, title: "Team celebrations", description: "The people behind LVR, together beyond the everyday." },
   { id: "community-care" as GalleryCategory, title: "Community outreach", description: "Health awareness, screening and care beyond the hospital walls." },
 ] as const;
 
 export const galleryPhotos: GalleryPhoto[] = [
+  { id: "hospital-interior-01", category: "hospital-visits", src: "/media/facilities/critical-care-ward.webp", thumbnail: "/media/facilities/critical-care-ward-thumb.webp", alt: "Critical-care and inpatient beds at LVR Multi Speciality Hospital", width: 1400, height: 934 },
+  { id: "hospital-interior-02", category: "hospital-visits", src: "/media/facilities/consultation-room.webp", thumbnail: "/media/facilities/consultation-room-thumb.webp", alt: "Doctor consultation room at LVR Multi Speciality Hospital", width: 1400, height: 934 },
   { id: "hospital-visit-01", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-01.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-01.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 720 },
   { id: "hospital-visit-02", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-02.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-02.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 960 },
   { id: "hospital-visit-03", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-03.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-03.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 853 },
