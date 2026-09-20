@@ -1,0 +1,48 @@
+export type GalleryCategory = "hospital-visits" | "team-life" | "community-care";
+
+export type GalleryPhoto = { id: string; category: GalleryCategory; src: string; thumbnail: string; alt: string; width: number; height: number };
+
+export const galleryCollections = [
+  { id: "hospital-visits" as GalleryCategory, title: "Hospital visits", description: "Professional conversations and moments shared with visitors at LVR." },
+  { id: "team-life" as GalleryCategory, title: "Team celebrations", description: "The people behind LVR, together beyond the everyday." },
+  { id: "community-care" as GalleryCategory, title: "Community outreach", description: "Health awareness, screening and care beyond the hospital walls." },
+] as const;
+
+export const galleryPhotos: GalleryPhoto[] = [
+  { id: "hospital-visit-01", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-01.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-01.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 720 },
+  { id: "hospital-visit-02", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-02.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-02.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 960 },
+  { id: "hospital-visit-03", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-03.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-03.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 853 },
+  { id: "hospital-visit-04", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-04.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-04.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 960 },
+  { id: "hospital-visit-05", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-05.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-05.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 853 },
+  { id: "hospital-visit-06", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-06.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-06.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 853 },
+  { id: "hospital-visit-07", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-07.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-07.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 853 },
+  { id: "hospital-visit-08", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-08.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-08.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 576 },
+  { id: "hospital-visit-09", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-09.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-09.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 576 },
+  { id: "hospital-visit-10", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-10.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-10.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 576 },
+  { id: "hospital-visit-11", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-11.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-11.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 576 },
+  { id: "hospital-visit-12", category: "hospital-visits", src: "/media/gallery/full/hospital-visit-12.webp", thumbnail: "/media/gallery/thumbs/hospital-visit-12.webp", alt: "LVR Hospital team and guests during a hospital visit", width: 1280, height: 576 },
+  { id: "team-celebration-01", category: "team-life", src: "/media/gallery/full/team-celebration-01.webp", thumbnail: "/media/gallery/thumbs/team-celebration-01.webp", alt: "LVR Hospital team members sharing a celebration", width: 1280, height: 960 },
+  { id: "team-celebration-02", category: "team-life", src: "/media/gallery/full/team-celebration-02.webp", thumbnail: "/media/gallery/thumbs/team-celebration-02.webp", alt: "LVR Hospital team members sharing a celebration", width: 1280, height: 960 },
+  { id: "team-celebration-03", category: "team-life", src: "/media/gallery/full/team-celebration-03.webp", thumbnail: "/media/gallery/thumbs/team-celebration-03.webp", alt: "LVR Hospital team members sharing a celebration", width: 1280, height: 960 },
+  { id: "team-celebration-04", category: "team-life", src: "/media/gallery/full/team-celebration-04.webp", thumbnail: "/media/gallery/thumbs/team-celebration-04.webp", alt: "LVR Hospital team members sharing a celebration", width: 1280, height: 960 },
+  { id: "team-celebration-05", category: "team-life", src: "/media/gallery/full/team-celebration-05.webp", thumbnail: "/media/gallery/thumbs/team-celebration-05.webp", alt: "LVR Hospital team members sharing a celebration", width: 1280, height: 960 },
+  { id: "team-celebration-06", category: "team-life", src: "/media/gallery/full/team-celebration-06.webp", thumbnail: "/media/gallery/thumbs/team-celebration-06.webp", alt: "LVR Hospital team members sharing a celebration", width: 1280, height: 960 },
+  { id: "team-celebration-07", category: "team-life", src: "/media/gallery/full/team-celebration-07.webp", thumbnail: "/media/gallery/thumbs/team-celebration-07.webp", alt: "LVR Hospital team members sharing a celebration", width: 1280, height: 576 },
+  { id: "team-celebration-08", category: "team-life", src: "/media/gallery/full/team-celebration-08.webp", thumbnail: "/media/gallery/thumbs/team-celebration-08.webp", alt: "LVR Hospital team members sharing a celebration", width: 1280, height: 960 },
+  { id: "team-celebration-09", category: "team-life", src: "/media/gallery/full/team-celebration-09.webp", thumbnail: "/media/gallery/thumbs/team-celebration-09.webp", alt: "LVR Hospital team members sharing a celebration", width: 1152, height: 519 },
+  { id: "team-celebration-10", category: "team-life", src: "/media/gallery/full/team-celebration-10.webp", thumbnail: "/media/gallery/thumbs/team-celebration-10.webp", alt: "LVR Hospital team members sharing a celebration", width: 1152, height: 519 },
+  { id: "team-celebration-11", category: "team-life", src: "/media/gallery/full/team-celebration-11.webp", thumbnail: "/media/gallery/thumbs/team-celebration-11.webp", alt: "LVR Hospital team members sharing a celebration", width: 1280, height: 720 },
+  { id: "team-celebration-12", category: "team-life", src: "/media/gallery/full/team-celebration-12.webp", thumbnail: "/media/gallery/thumbs/team-celebration-12.webp", alt: "LVR Hospital team members sharing a celebration", width: 1280, height: 960 },
+  { id: "community-outreach-01", category: "community-care", src: "/media/gallery/full/community-outreach-01.webp", thumbnail: "/media/gallery/thumbs/community-outreach-01.webp", alt: "LVR Hospital team participating in community healthcare outreach", width: 1280, height: 719 },
+  { id: "community-outreach-02", category: "community-care", src: "/media/gallery/full/community-outreach-02.webp", thumbnail: "/media/gallery/thumbs/community-outreach-02.webp", alt: "LVR Hospital team participating in community healthcare outreach", width: 1280, height: 719 },
+  { id: "community-outreach-04", category: "community-care", src: "/media/gallery/full/community-outreach-04.webp", thumbnail: "/media/gallery/thumbs/community-outreach-04.webp", alt: "LVR Hospital team participating in community healthcare outreach", width: 1280, height: 576 },
+  { id: "community-outreach-05", category: "community-care", src: "/media/gallery/full/community-outreach-05.webp", thumbnail: "/media/gallery/thumbs/community-outreach-05.webp", alt: "LVR Hospital team participating in community healthcare outreach", width: 1280, height: 576 },
+  { id: "community-outreach-06", category: "community-care", src: "/media/gallery/full/community-outreach-06.webp", thumbnail: "/media/gallery/thumbs/community-outreach-06.webp", alt: "LVR Hospital team participating in community healthcare outreach", width: 576, height: 1280 },
+  { id: "community-outreach-07", category: "community-care", src: "/media/gallery/full/community-outreach-07.webp", thumbnail: "/media/gallery/thumbs/community-outreach-07.webp", alt: "LVR Hospital team participating in community healthcare outreach", width: 576, height: 1280 },
+  { id: "community-outreach-08", category: "community-care", src: "/media/gallery/full/community-outreach-08.webp", thumbnail: "/media/gallery/thumbs/community-outreach-08.webp", alt: "LVR Hospital team participating in community healthcare outreach", width: 1280, height: 720 },
+];
+
+export const galleryVideos = [
+  { id: "community-health-screening", category: "community-care" as GalleryCategory, title: "Community health screening", description: "A glimpse of the LVR team providing a health screening in the community.", src: "/media/gallery/videos/community-health-screening.mp4", poster: "/media/gallery/videos/community-health-screening-poster.webp", orientation: "landscape" as const },
+  { id: "inside-lvr-walkthrough", category: "hospital-visits" as GalleryCategory, title: "A walk through LVR", description: "Step inside LVR Multi Speciality Hospital and see our care environment.", src: "/media/gallery/videos/inside-lvr-walkthrough.mp4", poster: "/media/gallery/videos/inside-lvr-walkthrough-poster.webp", orientation: "portrait" as const },
+];

@@ -14,6 +14,7 @@ import "./signature-design.css";
 import "./hospital-details.css";
 import "./professional-design.css";
 import "./mobile-refinements.css";
+import "./gallery.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),

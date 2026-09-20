@@ -4,7 +4,7 @@ import { test, expect } from "@playwright/test";
 test.skip(!process.env.PLAYWRIGHT_BASE_URL, "Run against the built static preview.");
 
 test("exported routes, metadata, and images survive direct visits and refreshes", async ({ page, request }) => {
-  for (const route of ["/", "/about", "/doctors/prathyusha", "/departments/gastroenterology", "/facilities", "/patient-guide", "/contact", "/te", "/updates"]) {
+  for (const route of ["/", "/about", "/doctors/prathyusha", "/departments/gastroenterology", "/facilities", "/gallery", "/patient-guide", "/contact", "/te", "/updates"]) {
     expect((await request.get(route)).status(), route).toBe(200);
     await page.goto(route);
     await page.reload();

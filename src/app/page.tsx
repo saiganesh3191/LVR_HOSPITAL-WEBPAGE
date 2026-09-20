@@ -6,6 +6,7 @@ import { HospitalFacilities } from "@/components/hospital-facilities";
 import { HospitalBuilding } from "@/components/hospital-visit";
 import { CareJourney } from "@/components/care-journey";
 import { CareFinder, SpecialtyExplorer } from "@/components/care-explorer";
+import { HomeGallery } from "@/components/home-gallery";
 import { doctors, hospital, whatsappUrl } from "@/lib/hospital";
 
 export default function Home() {
@@ -29,8 +30,9 @@ export default function Home() {
     <section className="community-section editorial-community"><div className="container community-grid"><div className="community-statement"><Eyebrow>02 / THE LVR WAY</Eyebrow><h2>Not far away.<br />Never <em>far from care.</em></h2><p>Good care starts with someone listening. We’re here to make space for your questions, explain the next step, and help you feel more at ease.</p><Link href="/about" className="text-link">This is our story <ArrowUpRight size={20} /></Link></div><HospitalBuilding /><div className="community-facts"><div className="community-year"><span>ROOTED IN SATHUPALLY</span><strong>Since<br /><em>2024.</em></strong><MapPin size={35} strokeWidth={1.3} /></div><div className="community-value"><Heart size={25} strokeWidth={1.4} /><div><h3>People, before everything.</h3><p>Personal attention for you and the people you love.</p></div></div><div className="community-value"><MessageCircle size={25} strokeWidth={1.4} /><div><h3>A conversation, not a complication.</h3><p>Our reception team helps you arrange your visit.</p></div></div></div></div></section>
     <section className="section doctors-section editorial-doctors"><div className="container"><div className="section-heading"><div><Eyebrow>03 / YOUR CARE TEAM</Eyebrow><h2>Good people.<br /><em>In your corner.</em></h2></div><div className="section-heading-aside"><p>Meet the doctors behind your care.<br />Get to know them before you say hello.</p><Link href="/doctors" className="text-link">Find your doctor <ArrowUpRight size={20} /></Link></div></div><p className="mobile-swipe-hint">Swipe to meet all five doctors <ArrowRight size={16} /></p><div className="doctor-grid">{doctors.map(doctor => <DoctorCard doctor={doctor} key={doctor.slug} />)}</div><p className="directory-note small-note">Hospital care is available 24/7. Individual doctor schedules vary; reception will confirm your appointment.</p></div></section>
     <HospitalFacilities compact />
-    <section className="visit-section"><div className="container"><div className="section-heading"><div><Eyebrow>04 / A LITTLE LESS WORRY</Eyebrow><h2>We’ll take it<br /><em>one step at a time.</em></h2></div><Link href="/patient-guide" className="text-link">Your guide to visiting LVR <ArrowUpRight size={20} /></Link></div><CareJourney /></div></section>
-    <section className="section"><div className="container faq-grid"><div><Eyebrow>05 / GOOD TO KNOW</Eyebrow><h2>Less wondering.<br /><em>More clarity.</em></h2><p className="muted">Something else on your mind?</p><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="text-link">Let’s talk <MessageCircle size={19} /></a></div><FaqList limit={4} /></div></section>
+    <HomeGallery />
+    <section className="visit-section"><div className="container"><div className="section-heading"><div><Eyebrow>05 / A LITTLE LESS WORRY</Eyebrow><h2>We’ll take it<br /><em>one step at a time.</em></h2></div><Link href="/patient-guide" className="text-link">Your guide to visiting LVR <ArrowUpRight size={20} /></Link></div><CareJourney /></div></section>
+    <section className="section"><div className="container faq-grid"><div><Eyebrow>06 / GOOD TO KNOW</Eyebrow><h2>Less wondering.<br /><em>More clarity.</em></h2><p className="muted">Something else on your mind?</p><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="text-link">Let’s talk <MessageCircle size={19} /></a></div><FaqList limit={4} /></div></section>
     <CareCta />
   </>;
 }

@@ -8,7 +8,7 @@ import { HospitalLogo } from "./icons";
 import { hospital } from "@/lib/hospital";
 import { SiteSearch } from "./site-search";
 
-const navigation = [ ["Home", "/"], ["About us", "/about"], ["Specialties", "/departments"], ["Our doctors", "/doctors"], ["Facilities", "/facilities"], ["Patient guide", "/patient-guide"], ["Contact", "/contact"] ];
+const navigation = [ ["Home", "/"], ["About us", "/about"], ["Specialties", "/departments"], ["Our doctors", "/doctors"], ["Facilities", "/facilities"], ["Gallery", "/gallery"], ["Patient guide", "/patient-guide"], ["Contact", "/contact"] ];
 
 export function Header() {
   const pathname = usePathname();
