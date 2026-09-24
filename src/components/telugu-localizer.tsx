@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { teluguTranslations } from "@/lib/telugu-translations";
+import { teluguReviewedTranslations } from "@/lib/telugu-reviewed-translations";
 
 const assetPath = /^\/(?:_next|branding|fonts|images|media)\//;
 
@@ -12,6 +13,14 @@ function translatedRoute(href: string) {
 }
 
 function translateTree(root: ParentNode) {
+  const contextual = [
+    ...(root instanceof HTMLElement && root.dataset.te ? [root] : []),
+    ...root.querySelectorAll<HTMLElement>("[data-te]"),
+  ];
+  for (const element of contextual) {
+    element.textContent = element.dataset.te ?? element.textContent;
+    element.dataset.noTranslate = "";
+  }
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
   const nodes: Text[] = [];
   while (walker.nextNode()) nodes.push(walker.currentNode as Text);
@@ -20,13 +29,14 @@ function translateTree(root: ParentNode) {
     if (!parent || parent.closest("script,style,[data-no-translate],[data-locale-switch]")) continue;
     const value = node.nodeValue ?? "";
     const key = value.trim().replace(/\s+/g, " ");
-    const translation = teluguTranslations[key];
+    const translation = teluguReviewedTranslations[key] ?? teluguTranslations[key];
     if (translation) node.nodeValue = `${value.match(/^\s*/)?.[0] ?? ""}${translation}${value.match(/\s*$/)?.[0] ?? ""}`;
   }
   for (const element of root.querySelectorAll<HTMLElement>("[aria-label],[placeholder],[title]")) {
     for (const attribute of ["aria-label", "placeholder", "title"] as const) {
       const value = element.getAttribute(attribute);
-      if (value && teluguTranslations[value]) element.setAttribute(attribute, teluguTranslations[value]);
+      const translation = value && (teluguReviewedTranslations[value] ?? teluguTranslations[value]);
+      if (translation) element.setAttribute(attribute, translation);
     }
   }
   for (const link of root.querySelectorAll<HTMLAnchorElement>("a[href]")) {

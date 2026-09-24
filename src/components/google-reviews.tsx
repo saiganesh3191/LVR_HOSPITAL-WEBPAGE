@@ -16,7 +16,7 @@ function Stars() {
 
 export function GoogleReviews() {
   return <section className="section google-reviews-section" aria-labelledby="google-reviews-title"><div className="container">
-    <div className="google-reviews-heading"><div><Eyebrow>PATIENT FEEDBACK</Eyebrow><h2 id="google-reviews-title">Kind words from<br /><em>our community.</em></h2></div><div className="google-rating" aria-label="4.8 out of 5 from 255 Google reviews"><strong>4.8</strong><div><span className="google-stars" aria-hidden="true">{Array.from({ length: 5 }, (_, index) => <Star key={index} size={18} fill="currentColor" />)}</span><p>255 Google reviews</p></div></div></div>
+    <div className="google-reviews-heading"><div><Eyebrow>PATIENT FEEDBACK</Eyebrow><h2 id="google-reviews-title">Kind words from<br /><em data-te="మన ప్రాంత ప్రజల నుంచి.">our community.</em></h2></div><div className="google-rating" aria-label="4.8 out of 5 from 255 Google reviews"><strong>4.8</strong><div><span className="google-stars" aria-hidden="true">{Array.from({ length: 5 }, (_, index) => <Star key={index} size={18} fill="currentColor" />)}</span><p>255 Google reviews</p></div></div></div>
     <div className="google-review-cards">
       {reviews.map((review, index) => <article className={`google-review-card${index === 0 ? " google-review-featured" : ""}`} key={review.name}>
         <div className="google-review-card-top"><Stars /><span className="review-source">GOOGLE REVIEW</span></div>
