@@ -27,8 +27,8 @@ export function DussehraWishes() {
           className="dussehra-poster"
           src="/media/festivals/lvr-dussehra-2026.png"
           alt="Dussehra greetings from LVR Multi Speciality Hospital and doctors Dr. V. Lakshman Sai, Dr. V. Prathyusha and Dr. K. Chaithanya"
-          width={816}
-          height={810}
+          width={813}
+          height={818}
           priority
           sizes="(max-width: 720px) calc(100vw - 24px), 720px"
         />
