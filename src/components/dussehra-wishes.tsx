@@ -8,19 +8,30 @@ const DISPLAY_TIME_MS = 5000;
 
 export function DussehraWishes() {
   const [visible, setVisible] = useState(true);
+  const [closing, setClosing] = useState(false);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setVisible(false), DISPLAY_TIME_MS);
-    return () => window.clearTimeout(timer);
+    const exitTimer = window.setTimeout(() => setClosing(true), DISPLAY_TIME_MS - 450);
+    const removeTimer = window.setTimeout(() => setVisible(false), DISPLAY_TIME_MS);
+    return () => {
+      window.clearTimeout(exitTimer);
+      window.clearTimeout(removeTimer);
+    };
   }, []);
+
+  function dismiss() {
+    setClosing(true);
+    window.setTimeout(() => setVisible(false), 320);
+  }
 
   if (!visible) return null;
 
   return (
-    <section className="dussehra-wish" role="status" aria-live="polite" aria-label="Dussehra wishes from LVR Multi Speciality Hospital">
-      <button className="dussehra-backdrop" type="button" onClick={() => setVisible(false)} aria-label="Close Dussehra wishes" />
+    <section className={`dussehra-wish${closing ? " is-closing" : ""}`} role="status" aria-live="polite" aria-label="Dussehra wishes from LVR Multi Speciality Hospital">
+      <button className="dussehra-backdrop" type="button" onClick={dismiss} aria-label="Close Dussehra wishes" />
+      <div className="dussehra-ambient" aria-hidden="true"><i /><i /><i /></div>
       <div className="dussehra-poster-card">
-        <button className="dussehra-close" type="button" onClick={() => setVisible(false)} aria-label="Close Dussehra wishes">
+        <button className="dussehra-close" type="button" onClick={dismiss} aria-label="Close Dussehra wishes">
           <X size={20} />
         </button>
         <Image
