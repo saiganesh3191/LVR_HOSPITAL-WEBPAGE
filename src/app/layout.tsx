@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer";
 import { SiteMotion } from "@/components/site-motion";
 import { VisitDrawer } from "@/components/visit-drawer";
 import { PhoneLinks } from "@/components/phone-links";
+import { DussehraWishes } from "@/components/dussehra-wishes";
 import "./globals.css";
 import "./visit-interactions.css";
 import "./editorial-design.css";
@@ -15,6 +16,7 @@ import "./hospital-details.css";
 import "./professional-design.css";
 import "./mobile-refinements.css";
 import "./gallery.css";
+import "./dussehra-wishes.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
@@ -26,5 +28,5 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#174c43" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><a className="skip-link" href="#main-content">Skip to content</a><Header /><main id="main-content">{children}</main><Footer /><VisitDrawer /><PhoneLinks /><SiteMotion /></body></html>;
+  return <html lang="en"><body><a className="skip-link" href="#main-content">Skip to content</a><Header /><main id="main-content">{children}</main><Footer /><VisitDrawer /><PhoneLinks /><SiteMotion /><DussehraWishes /></body></html>;
 }
