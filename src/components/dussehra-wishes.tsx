@@ -5,15 +5,21 @@ import Image from "next/image";
 import { X } from "lucide-react";
 
 const DISPLAY_TIME_MS = 5000;
+// Midnight at the end of 20 October 2026 in Asia/Kolkata (IST).
+const DUSSEHRA_END_MS = Date.parse("2026-10-20T18:30:00Z");
 
 export function DussehraWishes() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [closing, setClosing] = useState(false);
 
   useEffect(() => {
+    if (Date.now() >= DUSSEHRA_END_MS) return;
+
+    const showFrame = window.requestAnimationFrame(() => setVisible(true));
     const exitTimer = window.setTimeout(() => setClosing(true), DISPLAY_TIME_MS - 450);
     const removeTimer = window.setTimeout(() => setVisible(false), DISPLAY_TIME_MS);
     return () => {
+      window.cancelAnimationFrame(showFrame);
       window.clearTimeout(exitTimer);
       window.clearTimeout(removeTimer);
     };
