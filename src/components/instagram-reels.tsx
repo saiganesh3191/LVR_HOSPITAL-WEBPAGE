@@ -17,11 +17,11 @@ type InstagramVideo = {
 // to the next available group every Monday at 12:00 AM India time.
 const weeklyVideoBatches: readonly (readonly InstagramVideo[])[] = [
   [
-    { title: "Headache relief", published: "21 November 2024", image: "/media/instagram/week-01-1.jpg", href: "https://www.instagram.com/p/DCoLRd3JPYe/" },
-    { title: "Meet LVR Hospital", published: "21 November 2024", image: "/media/instagram/week-01-2.webp", href: "https://www.instagram.com/p/DCoXXlfT2Vc/" },
-    { title: "Protection from viral fevers", published: "21 November 2024", image: "/media/instagram/week-01-3.jpg", href: "https://www.instagram.com/p/DCqbjenJuuh/" },
-    { title: "Advanced healthcare in Sathupally", published: "22 November 2024", image: "/media/instagram/week-01-4.jpg", href: "https://www.instagram.com/p/DCq3EUxp03l/" },
-    { title: "Understanding back pain", published: "22 November 2024", image: "/media/instagram/week-01-5.jpg", href: "https://www.instagram.com/p/DCs9Sl8JTN_/" },
+    { title: "When a cough brings up blood", published: "9 December 2024", image: "/media/instagram/week-01-1.jpg", href: "https://www.instagram.com/p/DDXDLjJzuVD/" },
+    { title: "Free community medical camp", published: "10 December 2024", image: "/media/instagram/week-01-2.jpg", href: "https://www.instagram.com/p/DDZfjO6TKR_/" },
+    { title: "Understanding thyroid symptoms", published: "11 December 2024", image: "/media/instagram/week-01-3.jpg", href: "https://www.instagram.com/p/DDbzxcDJwCh/" },
+    { title: "Dizziness and vertigo", published: "12 December 2024", image: "/media/instagram/week-01-4.jpg", href: "https://www.instagram.com/p/DDecm18JxUX/" },
+    { title: "Christmas wishes from LVR", published: "24 December 2024", image: "/media/instagram/week-01-5.jpg", href: "https://www.instagram.com/p/DD-6LDpP9g3/" },
   ],
 ];
 
@@ -50,10 +50,10 @@ export function InstagramReels() {
       <div className="section-heading instagram-reels-heading">
         <div>
           <Eyebrow>THIS WEEK ON INSTAGRAM</Eyebrow>
-          <h2 id="instagram-reels-title">From the beginning.<br /><em>See LVR in motion.</em></h2>
+          <h2 id="instagram-reels-title">Health, community<br /><em>and care.</em></h2>
         </div>
         <div className="section-heading-aside">
-          <p>Five moments from LVR, shared in order from the hospital&rsquo;s earliest Instagram videos.</p>
+          <p>Five selected updates from LVR Hospital&rsquo;s Instagram, with health information and moments from our community.</p>
           <a className="text-link" href={hospital.instagram} target="_blank" rel="noopener noreferrer">
             Follow LVR on Instagram <ArrowUpRight size={19} />
           </a>
